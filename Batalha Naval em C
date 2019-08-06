@@ -1,0 +1,104 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    int x, y, i, j, tentativas, cont=0, acertoA=0, acertoB=0, linha, coluna;
+    char player1[100] , player2[100];
+    printf("Informe o tamanho do campo de batalha:");
+    scanf("%d%d", &x, &y);
+    printf("Informe numero de tentativas:");
+    scanf("%d", &tentativas);
+    printf("Nome do Player 1:  ");
+    scanf("%s", player1);
+    printf("Nome do Player 2:  ");
+    scanf("%s", player2);
+    int matrizA[x][y], matrizB[x][y];
+    int campoA[x][y], campoB[x][y];
+    for(i=0 ; i<x ; i++){
+        for(j=0 ; j<y ; j++){
+            matrizA[i][j]= rand()%2;
+        }
+    }
+    for(i=0 ; i<x ; i++){
+        for(j=0 ; j<y ; j++){
+            matrizB[i][j]= rand()%3;
+            if(matrizB[i][j]==2){
+                matrizB[i][j]=1;
+            }
+        }
+    }
+    for(i=0 ; i<x ; i++){
+        for(j=0 ; j<y ; j++){
+            campoA[i][j]= 0;
+        }
+    }
+    for(i=0 ; i<x ; i++){
+        for(j=0 ; j<y ; j++){
+            campoB[i][j]= 0;
+        }
+    }
+
+    do{
+        printf("Player: %s \t Tentativas: %d\t 1-ACERTO / 3-ERRO\n", player1, tentativas);
+        for(i=0 ; i<x ; i++){
+            for(j=0 ; j<y ; j++){
+                cont++;
+                printf("%d\t", campoA[i][j]);
+                if(cont==x){
+                    printf("\n");
+                    cont=0;
+                }
+            }
+        }
+        printf("Linha: ");
+        scanf("%d", &linha);
+        printf("Coluna: ");
+        scanf("%d", &coluna);
+        if(matrizB[linha-1][coluna-1]==1){
+            campoB[linha-1][coluna-1]=1;
+            printf("Acertou!\n");
+            acertoA++;
+        }
+        else if(matrizB[linha-1][coluna-1]==0){
+            campoB[linha-1][coluna-1]=3;
+            printf("Errou!\n");
+        }
+
+        printf("Player: %s \t Tentativas: %d\t 1-ACERTO / 3-ERRO\n", player2, tentativas);
+        for(i=0 ; i<x ; i++){
+            for(j=0 ; j<y ; j++){
+                cont++;
+                printf("%d\t", campoB[i][j]);
+                if(cont==x){
+                    printf("\n");
+                    cont=0;
+                }
+            }
+        }
+        printf("Linha: ");
+        scanf("%d", &linha);
+        printf("Coluna: ");
+        scanf("%d", &coluna);
+        if(matrizA[linha-1][coluna-1]==1){
+            campoA[linha-1][coluna-1]=1;
+            printf("Acertou!\n");
+            acertoB++;
+        }
+        else if(matrizA[linha-1][coluna-1]==0){
+            campoA[linha-1][coluna-1]=3;
+            printf("Errou!\n");
+        }
+        tentativas--;
+    }
+    while(tentativas>0);
+    if(acertoA>acertoB){
+        printf("Player %s ganhou com %d acertos!!!\n", player1, acertoA);
+    }
+    else if(acertoB>acertoA){
+        printf("Player %s ganhou com %d acertos!!!\n", player2, acertoB);
+    }
+    else if(acertoA==acertoB){
+        printf("Players empataram com %d acertos!!!\n", acertoA);
+    }
+return 0 ;
+}
