@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int main(){
+    int TAM= 500, i;
+    char string[TAM];
+    fgets(string, TAM , stdin);
+    TAM= strlen(string)-1;
+
+    for(i=TAM; i>=0 ; i--){
+        printf("%c", string[i]);
+    }
+return 0;
+}
