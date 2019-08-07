@@ -41,14 +41,10 @@ int main(){
     do{
         printf("Player: %s \t Tentativas: %d\t 1-ACERTO / 3-ERRO\n", player1, tentativas);
         for(i=0 ; i<x ; i++){
-            for(j=0 ; j<y ; j++){
-                cont++;
+            for(j=0 ; j<y ; j++){               
                 printf("%d\t", campoA[i][j]);
-                if(cont==x){
-                    printf("\n");
-                    cont=0;
-                }
             }
+            printf("\n");
         }
         printf("Linha: ");
         scanf("%d", &linha);
@@ -67,13 +63,9 @@ int main(){
         printf("Player: %s \t Tentativas: %d\t 1-ACERTO / 3-ERRO\n", player2, tentativas);
         for(i=0 ; i<x ; i++){
             for(j=0 ; j<y ; j++){
-                cont++;
                 printf("%d\t", campoB[i][j]);
-                if(cont==x){
-                    printf("\n");
-                    cont=0;
-                }
             }
+             printf("\n");                 
         }
         printf("Linha: ");
         scanf("%d", &linha);
