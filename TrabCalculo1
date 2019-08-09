@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+void receita_marginal();
+void juros_marginal();
+void custo_marginal();
+
+int main(){
+    int menu;
+    do{
+      printf("Informe a operacao a ser executada:\n \t1-Receita Marginal\n\t2-Juros Marginal\n\t3-Custo Margianl\n\t\t");
+      scanf("%d", &menu);
+      switch (menu)
+      {
+        case 1:
+          printf("aaaaa");
+          printf("\n");
+        break;
+        case 2:
+          printf("bbbbb");
+          printf("\n");
+        break;
+        case 3:
+          custo_marginal();
+          printf("\n");
+        break;
+        }
+      }
+    while(menu!=0);
+return 0;
+}
+
+
+
+void custo_marginal(){
+
+    float cm, custo_f, custo_um, x, delta_x, CustoTotal_1, CustoTotal_2;
+    printf("Informe o custo fixo:  ");
+    scanf("%f", &custo_f);
+    printf("Informe o custo na producao de 1:  ");
+    scanf("%f", &custo_um);
+    printf("Informe a quantidade produzida:  ");
+    scanf("%f", &x);
+    printf("Informe a variacao na producao:  ");
+    scanf("%f", &delta_x);
+    CustoTotal_1= (custo_f + (custo_um * (x + delta_x)));
+    CustoTotal_2= (custo_f + (custo_um * x));
+    cm= ((CustoTotal_1 - CustoTotal_2) / delta_x );
+    printf("\nCusto Marginal de %.2f", cm);
+}
