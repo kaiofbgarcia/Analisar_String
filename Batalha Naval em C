@@ -4,6 +4,7 @@
 int main(){
     int x, y, i, j, tentativas, cont=0, acertoA=0, acertoB=0, linha, coluna, error=0;
     char player1[100] , player2[100];
+    printf("Bem Vindo a Batalha Naval em C\n");
     printf("Informe o tamanho do campo de batalha:\t");
     scanf("%d%d", &x, &y);
     printf("Informe numero de tentativas:\t");
