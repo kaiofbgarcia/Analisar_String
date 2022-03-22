@@ -1,0 +1,13 @@
+int main(){
+    int vnotas[10];
+    int media, variancia, desviop, soma;
+    for(int i= 0; i<10 ; i++){
+        scanf("%f", &vnotas[i]);
+    }
+    media= Medias(vnotas, 10);
+    soma= Variancia(vnotas, media, 10);
+
+    printf("%f", soma/media);
+
+return 0;
+}
